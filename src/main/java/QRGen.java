@@ -7,14 +7,15 @@ import com.google.zxing.common.BitMatrix;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import java.util.Scanner;
 
 public class QRGen {
     public static void main(String[] args) {
 
-        System.out.println("namaste");
+        Scanner scanner = new Scanner(System.in);
 
-        String text = "Dipgiri is here!";
-        String filePath = "C:/Users/USER/Desktop/dump/img.png";
+        String text = scanner.nextLine();
+        String filePath = "C:/Users/USER/Desktop/dump/qr-code.png";
         int width = 300;
         int height = 300;
 
@@ -25,6 +26,8 @@ public class QRGen {
             Path path = Paths.get(filePath);
 
             MatrixToImageWriter.writeToPath(matrix,"png", path);
+
+            System.out.println();
         }   catch (Exception e) {
             e.printStackTrace();
         }
